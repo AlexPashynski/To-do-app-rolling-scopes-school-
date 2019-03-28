@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
-import store from './store'
+import store from './store';
+import Groups from './Groups'
 
 class App extends Component {
 
@@ -9,7 +10,7 @@ class App extends Component {
 
     render() {
         return (
-
+            <Groups/>
         )
     }
 }

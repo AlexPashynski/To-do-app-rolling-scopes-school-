@@ -1,42 +1,42 @@
 import { createStore } from 'redux';
 
 const initialState = {
-    items: [],
-    filters: [
+    groups: [
         {
             id: 1,
-            title: 'To do'
+            name: 'Category 1',
+            parentId: null
         },
         {
             id: 2,
-            title: 'Completed'
+            name: 'Category 2',
+            parentId: null
         },
         {
             id: 3,
-            title: 'All'
+            name: 'Category 3',
+            parentId: null
+        },
+        {
+            id: 4,
+            name: 'Category 1.1',
+            parentId: 1
+        },
+        {
+            id: 5,
+            name: 'Category 1.2',
+            parentId: 1
+        },
+        {
+            id: 6,
+            name: 'Category 3.1',
+            parentId: 3
         }
-    ],
-    activeFilterId: 1
+    ]
 };
 
 function reducer(state, action) {
-    if (action.type === 'ADD_TODO') {
-        const items = state.items.concat(action.item);
-        return {...state, items: items};
-    } else if (action.type === 'DELETE_TODO') {
-        const items = state.items.filter( item => item.id !== action.id);
-        return {...state, items: items};
-    } else if (action.type === 'TOGGLE_COMPLETE_TODO') {
-        let items = [...state.items]
-        let index = items.findIndex( item => item.id === action.id);
-        items[index].completed = !items[index].completed
-        return {...state, items: items};
-    } else if (action.type === 'APPLY_FILTER') {
-        const tempState = {...state, activeFilterId: action.id};
-        return tempState;
-    } else {
-        return state;
-    }
+    return state;
 }
 
 const store = createStore(reducer, initialState);
