@@ -14,14 +14,6 @@ class Category extends React.Component {
         })
     }
 
-    deleteCategory = (e, id) => {
-        e.stopPropagation()
-        e.preventDefault()
-        const history = this.props.match;
-        console.log(history)
-
-    }
-
     render () {
         const category = Store.getState().groups.find(group => group.id === this.props.id);
         const childs = Store.getState().groups.filter(group => group.parentId === this.props.id);

@@ -42,7 +42,6 @@ const initialState = {
 
 function reducer(state, action) {
     if (action.type === 'DELETE') {
-        console.log(state.groups)
         function removeCategory(array, id) {
             for (let i =0; i < array.length; i++) {
                 if(array[i].id == id) {
@@ -56,7 +55,6 @@ function reducer(state, action) {
             return array;
         }
         const filteredCategories = removeCategory([...state.groups], action.id)
-        console.log(filteredCategories)
         return {groups: filteredCategories};
     } else {
         return state;
