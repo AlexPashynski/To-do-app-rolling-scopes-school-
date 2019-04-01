@@ -29,14 +29,18 @@ a:visited {
     align-items: stretch;
 }
 
-.groups li a{
-    border: 1px solid black;
-    border-radius: 3px;
-    padding: 5px;
-    margin: 3px;
-    cursor: pointer;
+.category{
     display: flex;
+    flex-direction: row;
+    align-items: stretch;
     justify-content: flex-start;
+
+    border-radius: 3px;
+    cursor: pointer;
+    margin: 3px;
+    padding: 5px;
+    font-family: Arial;
+    font-weight: bold;
 }
 
 .groups.parent-groups > li{
@@ -47,11 +51,12 @@ a:visited {
     justify-self: flex-end;
 }
 
-.active {
+.category.active {
     background-color: #2473f2;
+
 }
 
-a.active:visited {
+.category.active a:visited {
     color: white;
 }
 
@@ -82,5 +87,21 @@ a.active .fas.fa-trash {
 .modal-content {
     background-color: #fefefe;
     margin: 15% auto;
-    width: 80%;
+    width: 35%;
+}
+
+#container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.category-section {
+    flex-basis: 30%;
+    background-color: #eee;
+}
+
+.task-section {
+    flex-basis: 69%;
+    background-color: #eee;
 }

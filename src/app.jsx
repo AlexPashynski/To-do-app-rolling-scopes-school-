@@ -1,8 +1,8 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import store from './store';
 import Groups from './Groups';
 import modalDeleteWindow from './modalDeleteWindow'
-import {Route} from 'react-router-dom'
+import { Route } from 'react-router-dom'
 
 class App extends Component {
 
@@ -13,10 +13,16 @@ class App extends Component {
     render() {
         return (
             <React.Fragment>
-                <Route exact path='/' component={Groups}/>
-                <Route path='/category/:id' component={Groups}/>
-                <Route path='/category/:id/delete' component={modalDeleteWindow}/>     
-            </React.Fragment>                      
+                <div className="category-section">
+                    <Route exact path='/' component={Groups} />
+                    <Route path='/category/:id' component={Groups} />
+                    <Route path='/category/:id/delete' component={modalDeleteWindow} />
+                </div>
+                <div className="task-section">
+
+                </div>
+
+            </React.Fragment>
         )
     }
 }
