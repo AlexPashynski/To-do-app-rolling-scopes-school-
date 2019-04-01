@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import store from './store';
-import Groups from './Groups'
+import Groups from './Groups';
+import {Route} from 'react-router-dom'
 
 class App extends Component {
 
@@ -10,7 +11,7 @@ class App extends Component {
 
     render() {
         return (
-            <Groups/>
+            <Route path='/category/:id' component={Groups}/>           
         )
     }
 }

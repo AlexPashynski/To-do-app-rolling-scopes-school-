@@ -1,0 +1,56 @@
+a {
+    text-decoration: none;
+    color: black;
+}
+
+ul {
+    list-style-type: none;
+}
+
+a:visited {
+    color:black;
+}
+
+.groups {
+    list-style-type: none;
+    font-family: Arial;
+    margin: 0;
+    padding-left: 15px;
+    flex-direction: column;
+}
+
+.groups.parent-groups {
+    display: flex;
+}
+
+.groups li{
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+}
+
+.groups li a{
+    border: 1px solid black;
+    border-radius: 3px;
+    padding: 5px;
+    margin: 3px;
+    cursor: pointer;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.groups.parent-groups > li{
+    display: flex;
+}
+
+.fas.fa-trash {
+    justify-self: flex-end;
+}
+
+.active {
+    background-color: #2473f2;
+}
+
+a.active:visited {
+    color: white;
+}

@@ -31,12 +31,34 @@ const initialState = {
             id: 6,
             name: 'Category 3.1',
             parentId: 3
-        }
+        },
+        {
+            id: 7,
+            name: 'Category 1.2.1',
+            parentId: 5
+        },
     ]
 };
 
 function reducer(state, action) {
-    return state;
+    if (action.type === 'DELETE') {
+        function removeCategory(array, id) {
+            for (let i =0; i < array.length; i++) {
+                if(array[i].id === id) {
+                    array.splice(i, 1);
+                    i --;
+                } else if (array[i].parentId === id) {
+                    removeCategory(array, array[i].id);
+                    i = -1;
+                }
+            }
+            return array;
+        }
+        const filteredCategories = removeCategory([...state.groups], action.id)
+        return {groups: filteredCategories};
+    } else {
+        return state;
+    }    
 }
 
 const store = createStore(reducer, initialState);
