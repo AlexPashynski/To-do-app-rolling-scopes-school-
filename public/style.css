@@ -136,6 +136,10 @@ ul {
     color: tomato;
 }
 
+a.active .fas.fa-trash {
+    color: tomato;
+}
+
 .fas.fa-edit {
     color: gray;
 }

@@ -1,6 +1,6 @@
 import React from 'react'
 import Store from './store'
-import {Link} from 'react-router-dom'
+import {Link, withRouter} from 'react-router-dom'
 
 class Category extends React.Component {
 
@@ -17,16 +17,16 @@ class Category extends React.Component {
     deleteCategory = (e, id) => {
         e.stopPropagation()
         e.preventDefault()
-        Store.dispatch({
-            type: 'DELETE',
-            id: id
-        })
+        const history = this.props.match;
+        console.log(history)
+
     }
 
     render () {
         const category = Store.getState().groups.find(group => group.id === this.props.id);
         const childs = Store.getState().groups.filter(group => group.parentId === this.props.id);
         const icon = this.state.enabled === true ? <i className="fas fa-minus"></i> : <i className="fas fa-plus"></i>;
+        // eslint-disable-next-line
         const classes = this.props.activeId == this.props.id ? 'active' : null;
         const renderedChilds = () => {
             if (childs.length && this.state.enabled) {
@@ -44,7 +44,12 @@ class Category extends React.Component {
                 <Link  className={classes} to={`/category/${this.props.id}`} onClick={this.toggleCategory}>
                     {icon}
                     {category.name}
-                    <i onClick={(e) => this.deleteCategory(e, this.props.id)} className="fas fa-trash"></i>
+                    <div>
+                            
+                    </div>                    
+                </Link>
+                <Link to={`/category/${this.props.id}/delete`}>
+                    <i className="fas fa-trash"></i>
                 </Link>
                 {renderedChilds()}
             </li>
@@ -52,4 +57,4 @@ class Category extends React.Component {
     }
 }
 
-export default Category;
+export default withRouter(Category);

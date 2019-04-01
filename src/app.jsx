@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import store from './store';
 import Groups from './Groups';
+import modalDeleteWindow from './modalDeleteWindow'
 import {Route} from 'react-router-dom'
 
 class App extends Component {
@@ -11,7 +12,11 @@ class App extends Component {
 
     render() {
         return (
-            <Route path='/category/:id' component={Groups}/>           
+            <React.Fragment>
+                <Route exact path='/' component={Groups}/>
+                <Route path='/category/:id' component={Groups}/>
+                <Route path='/category/:id/delete' component={modalDeleteWindow}/>     
+            </React.Fragment>                      
         )
     }
 }

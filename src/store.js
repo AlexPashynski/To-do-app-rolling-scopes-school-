@@ -42,12 +42,13 @@ const initialState = {
 
 function reducer(state, action) {
     if (action.type === 'DELETE') {
+        console.log(state.groups)
         function removeCategory(array, id) {
             for (let i =0; i < array.length; i++) {
-                if(array[i].id === id) {
+                if(array[i].id == id) {
                     array.splice(i, 1);
                     i --;
-                } else if (array[i].parentId === id) {
+                } else if (array[i].parentId == id) {
                     removeCategory(array, array[i].id);
                     i = -1;
                 }
@@ -55,6 +56,7 @@ function reducer(state, action) {
             return array;
         }
         const filteredCategories = removeCategory([...state.groups], action.id)
+        console.log(filteredCategories)
         return {groups: filteredCategories};
     } else {
         return state;
