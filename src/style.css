@@ -105,3 +105,51 @@ a.active .fas.fa-trash {
     flex-basis: 69%;
     background-color: #eee;
 }
+
+.modal-content {
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    font-family: Arial;
+    font-weight: bold;
+}
+
+.modal-header {
+    padding: 15px;
+    border-bottom: 1px solid #dee2e6;
+}
+
+.modal-message {
+    padding: 30px;
+    font-weight: normal;
+    border-bottom: 1px solid #dee2e6;
+}
+
+.modal-buttons {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.button {
+    font-family: Arial;
+    font-size: 15px;
+    padding: 10px;
+    margin: 5px;
+    border-radius: 3px;
+}
+
+.task-section{
+    border-radius: 5px;
+    font-family: Arial;
+}
+
+.tasks-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+}
+
+.task-item {
+    padding: 10px;
+    border-bottom: 1px solid #dee2e6;
+}

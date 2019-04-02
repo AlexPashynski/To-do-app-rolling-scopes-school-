@@ -4,38 +4,55 @@ const initialState = {
     groups: [
         {
             id: 1,
-            name: 'Category 1',
-            parentId: null
+            name: 'Sports activities',
+            parentId: null,
+            tasks: [
+                {
+                    id: 1,
+                    name: 'Run 3 km'
+                }
+            ]
         },
         {
             id: 2,
-            name: 'Category 2',
-            parentId: null
+            name: 'Home',
+            parentId: null,
+            tasks: []
         },
         {
             id: 3,
-            name: 'Category 3',
-            parentId: null
+            name: 'Office tasks',
+            parentId: null,
+            tasks: []
         },
         {
             id: 4,
-            name: 'Category 1.1',
-            parentId: 1
+            name: 'Swimming',
+            parentId: 1,
+            tasks: [
+                {
+                    id: 2,
+                    name: 'Swim 5 km'
+                }
+            ]
         },
         {
             id: 5,
-            name: 'Category 1.2',
-            parentId: 1
+            name: 'Bike',
+            parentId: 1,
+            tasks: []
         },
         {
             id: 6,
-            name: 'Category 3.1',
-            parentId: 3
+            name: 'Coffee drinking',
+            parentId: 3,
+            tasks: []
         },
         {
             id: 7,
-            name: 'Category 1.2.1',
-            parentId: 5
+            name: 'Riding skills',
+            parentId: 5,
+            tasks: []
         },
     ]
 };
@@ -44,9 +61,11 @@ function reducer(state, action) {
     if (action.type === 'DELETE') {
         function removeCategory(array, id) {
             for (let i =0; i < array.length; i++) {
+                // eslint-disable-next-line
                 if(array[i].id == id) {
                     array.splice(i, 1);
                     i --;
+                    // eslint-disable-next-line
                 } else if (array[i].parentId == id) {
                     removeCategory(array, array[i].id);
                     i = -1;
