@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import {connect} from 'react-redux'
-import Task from './Task';
-import * as actions from './store/actions'
+import {connect} from 'react-redux';
+import Task from '../../components/task/task';
+import * as actions from '../../store/actions';
+import './task-container-style.css';
 
 class TaskContainer extends Component {
 
@@ -15,7 +16,7 @@ class TaskContainer extends Component {
         const tasks = isLoading ? <div>Loading...</div> : this.props.tasks.map(task => <Task key={task.id} task={task}></Task>)
 
         return (
-            <div>
+            <div class="task-container">
                 {tasks}
             </div>
         )

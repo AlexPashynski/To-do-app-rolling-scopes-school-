@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import TaskContainer from './TaskContainer';
+import TaskContainer from '../containers/task-container/TaskContainer';
 
 class App extends Component {
 
