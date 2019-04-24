@@ -10,3 +10,26 @@ export const fetchTasks = (dispatch) => {
         tasks: json
     })})
 }
+
+export const deleteTask = (taskId) => (dispatch) => {
+    new Promise((resolve, reject) => {
+        fetch('http://localhost:3002/deleteTask',
+        {
+            method: 'DELETE',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({id: taskId})
+        })
+        .then(response => {
+            if (response.status === 200) {
+                resolve()
+            } else {
+                reject()
+            }
+        })
+    }).then(() => {
+        dispatch({
+            type: 'DELETE_TASK',
+            taskId: taskId
+        })
+    })
+}

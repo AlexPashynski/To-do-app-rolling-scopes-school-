@@ -15,6 +15,10 @@ const reducer = (state, action) => {
         return {isLoading: true}
     } else if (action.type === 'STOP_LOADING_TASKS') {
         return {isLoading: false}
+    } else if (action.type === 'DELETE_TASK') {
+        return {
+            tasks: state.tasks.filter(task => task.id !== action.taskId)
+        }
     }
     return state;
 }

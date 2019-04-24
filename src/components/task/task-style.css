@@ -8,12 +8,15 @@
   }
   
   .task-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     background-color: #1f1f3a;
     color: white;
   }
   
   .task-header .task-title {
-    padding: 5px 0 5px 10px;
+    padding: 5px 0 5px 15px;
   }
   
   .task-body {
@@ -23,4 +26,10 @@
   
   .task-body .task-description {
     padding: 5px 0 5px 10px;
+  }
+
+  .task-title-buttons .fa-trash {
+    color: tomato;
+    margin-right: 15px;
+    cursor: pointer;
   }

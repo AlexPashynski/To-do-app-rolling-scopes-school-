@@ -1,15 +1,18 @@
 import React from 'react';
 import './task-style.css'
 
-const Task = (props) => {
+const Task = ({task, deleteTask}) => {
     return (
-        <div class="task-item">
-            <div class="task-header">
-                <span class='task-title'>{props.task.title}</span>
+        <div className="task-item">
+            <div className="task-header">
+                <div className='task-title'>{task.title}</div>
+                <div className="task-title-buttons">
+                    <i onClick={() => deleteTask(task.id)} className="fas fa-trash"></i>
+                </div>
             </div>
-            <div class="task-body">
-                <div class="task-description">
-                    {props.task.description}
+            <div className="task-body">
+                <div className="task-description">
+                    {task.description}
                 </div>
             </div>
         </div>

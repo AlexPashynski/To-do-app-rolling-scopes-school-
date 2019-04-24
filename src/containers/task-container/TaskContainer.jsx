@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import {connect} from 'react-redux';
 import Task from '../../components/task/task';
 import * as actions from '../../store/actions';
+import Spinner from '../../components/spinner/spinner'
 import './task-container-style.css';
 
 class TaskContainer extends Component {
@@ -11,12 +12,10 @@ class TaskContainer extends Component {
     }
 
     render() {
-
         const isLoading = this.props.isLoading
-        const tasks = isLoading ? <div>Loading...</div> : this.props.tasks.map(task => <Task key={task.id} task={task}></Task>)
-
+        const tasks = isLoading ? <Spinner/> : this.props.tasks.map(task => <Task key={task.id} deleteTask={this.props.deleteTask} task={task}></Task>)
         return (
-            <div class="task-container">
+            <div className="task-container">
                 {tasks}
             </div>
         )
@@ -32,7 +31,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        fetchTasks: () => dispatch(actions.fetchTasks)
+        fetchTasks: () => dispatch(actions.fetchTasks),
+        deleteTask: (id) => dispatch(actions.deleteTask(id))
     }
 }
 
